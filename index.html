@@ -190,6 +190,34 @@ section{padding:80px 0;border-bottom:1px solid var(--line);}
 }
 .nfr-item .nfr-val{font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;}
 
+/* ===================== ARCHITECTURE PRACTICE CARDS ===================== */
+.practice-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:18px;
+}
+@media (max-width:980px){ .practice-grid{grid-template-columns:repeat(2, 1fr);} }
+@media (max-width:560px){ .practice-grid{grid-template-columns:1fr;} }
+.practice-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:22px 20px;
+  transition:border-color .2s, transform .2s;
+}
+.practice-card:hover{border-color:var(--amber); transform:translateY(-2px);}
+.practice-ic{
+  width:30px;height:30px;color:var(--amber);margin-bottom:14px;
+}
+.practice-ic svg{width:100%;height:100%;}
+.practice-title{
+  font-family:var(--disp);font-weight:700;font-size:15px;color:var(--text);
+  margin-bottom:8px;line-height:1.3;
+}
+.practice-desc{
+  font-size:13px;color:var(--muted);line-height:1.55;
+}
+
 /* ===================== TIMELINE (deployments) ===================== */
 .timeline{position:relative;padding-left:28px;}
 .timeline::before{
@@ -341,6 +369,7 @@ footer{padding:60px 0 80px;}
     <div class="sb-nav">
       <a href="#timeline">Experience</a>
       <a href="#nfr">NFR Focus</a>
+      <a href="#practice">Practice</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -356,8 +385,10 @@ footer{padding:60px 0 80px;}
     <p class="hero-sub">
       Abdul Sajid Khan — Architect &amp; Tech Lead specializing in performance, scalability,
       reliability, observability, and security for mission-critical platforms across government
-      and banking. Currently architecting NFR frameworks for law enforcement systems at the
-      Ministry of Interior, Qatar.
+      and banking. Works across the full architecture lifecycle — from ARB-level governance and
+      cloud migration strategy to the NFR detail that decides whether a system survives contact
+      with production. Currently architecting law enforcement systems at the Ministry of
+      Interior, Qatar.
     </p>
     <div class="hero-meta">
       <div><span class="lbl">based in</span>Doha, Qatar</div>
@@ -407,6 +438,93 @@ footer{padding:60px 0 80px;}
   </div>
 </section>
 
+<!-- ===================== ARCHITECTURE PRACTICE ===================== -->
+<section id="practice">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">// How decisions get made</div>
+      <h2 class="sec-title">Architecture practice &amp; governance</h2>
+      <p class="sec-desc">NFR depth means nothing without the process to make it stick — the governance, documentation, and cost discipline that gets an architecture decision adopted, funded, and kept current.</p>
+    </div>
+
+    <div class="practice-grid">
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.2"/><circle cx="4.5" cy="6" r="1.6"/><circle cx="19.5" cy="6" r="1.6"/><circle cx="4.5" cy="18" r="1.6"/><circle cx="19.5" cy="18" r="1.6"/><path d="M9.3 10.2L5.6 7M14.7 10.2L18.4 7M9.3 13.8L5.6 17M14.7 13.8L18.4 17"/></svg></div>
+        <div class="practice-title">Architecture Review Board</div>
+        <div class="practice-desc">Presented and defended design proposals at ARB level, turning technical decisions into governed, repeatable outcomes rather than one-off calls.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></div>
+        <div class="practice-title">TCO / ROI Modeling</div>
+        <div class="practice-desc">Built total-cost-of-ownership and return models to compare architecture options on more than technical merit — the business case behind the design.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/></svg></div>
+        <div class="practice-title">6Rs Migration Framework</div>
+        <div class="practice-desc">Applied rehost / replatform / refactor / repurchase / retire / retain assessment to plan cloud migrations matched to workload, risk, and cost.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="practice-title">Multi-Region HA/DR</div>
+        <div class="practice-desc">Designed active/passive and active/active topologies across regions, with failover paths sized to real recovery-time and recovery-point targets.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="11" rx="1.5"/><path d="M7 8V6a3 3 0 0 1 3-3M17 8V6a3 3 0 0 0-3-3"/><path d="M3 13h18"/></svg></div>
+        <div class="practice-title">Landing Zones</div>
+        <div class="practice-desc">Stood up governed landing zones — networking, identity, policy, and guardrails — as the foundation new workloads land into, not bolt onto.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V8a5 5 0 0 1 10 0v3"/><circle cx="12" cy="16" r="1.6"/></svg></div>
+        <div class="practice-title">Zero-Trust / IAM Design</div>
+        <div class="practice-desc">Designed identity-centric access models — least privilege, strong auth, segmented trust boundaries — for environments where breach blast-radius matters.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="2.4"/><path d="M8.5 8.5L7 7M15.5 8.5L17 7"/></svg></div>
+        <div class="practice-title">Executive Briefing</div>
+        <div class="practice-desc">Translated architecture trade-offs into briefings for non-technical stakeholders and leadership — risk, cost, and timeline, in their language.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.3L17.5 20 12 17l-5.5 3 1-6.7L3 9l6-1 3-6z"/></svg></div>
+        <div class="practice-title">Well-Architected Framework</div>
+        <div class="practice-desc">Applied Well-Architected pillars — reliability, security, cost, operational excellence, performance — across Azure and AWS workloads, framework-agnostic.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="18" r="2.6"/><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7"/></svg></div>
+        <div class="practice-title">Integration Architecture</div>
+        <div class="practice-desc">Designed integration patterns across services and third parties — sync vs. async, event-driven vs. request/response — matched to consistency needs.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></div>
+        <div class="practice-title">Reference Architecture</div>
+        <div class="practice-desc">Authored reusable reference architectures so new platforms started from a proven baseline instead of a blank page each time.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="19" height="14" rx="1.5"/><circle cx="9" cy="10" r="2.2"/><path d="M14 8.5h4M14 11.5h4"/><path d="M6 21h12"/></svg></div>
+        <div class="practice-title">C4 Diagrams</div>
+        <div class="practice-desc">Used Context, Container, Component, and Code diagrams to keep architecture communicable at the right altitude for each audience.</div>
+      </div>
+
+      <div class="practice-card">
+        <div class="practice-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 13h6M9 16h6M9 10h2"/></svg></div>
+        <div class="practice-title">ADR (Architecture Decision Records)</div>
+        <div class="practice-desc">Logged decisions, alternatives considered, and rationale as ADRs — so "why we built it this way" survives team turnover and time.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===================== TIMELINE ===================== -->
 <section id="timeline">
   <div class="wrap">
@@ -431,14 +549,19 @@ footer{padding:60px 0 80px;}
           <ul class="tl-list">
             <li>Defined and implemented NFR frameworks for performance, scalability, and reliability across law enforcement digital platforms.</li>
             <li>Architected microservices-based, Kubernetes-enabled solutions ensuring high availability and elasticity under critical workloads.</li>
+            <li>Presented and defended architecture proposals at Architecture Review Board level, securing sign-off on platform-wide technical direction.</li>
+            <li>Designed Zero-Trust and IAM models for field and back-office systems, aligning access control with the sensitivity of law enforcement data.</li>
             <li>Designed and governed Azure DevOps CI/CD pipelines for secure, traceable, automated multi-stage deployments.</li>
             <li>Built observability architecture on Dynatrace, ELK Stack, and Azure Monitor — improving incident response time and system-wide visibility.</li>
             <li>Established performance testing strategy, defining KPIs and baselines used for ongoing system validation.</li>
+            <li>Delivered executive briefings translating architecture risk, cost, and timeline trade-offs for non-technical leadership and stakeholders.</li>
+            <li>Authored reference architectures, C4 diagrams, and ADRs to keep platform decisions documented and communicable across teams.</li>
             <li>Mentored engineering teams on DevSecOps, reliability engineering, and maintainability practices.</li>
           </ul>
           <div class="tl-stack">
             <span class="chip">Kubernetes</span><span class="chip">Azure DevOps</span><span class="chip">Dynatrace</span>
             <span class="chip">ELK Stack</span><span class="chip">Azure Monitor</span><span class="chip">IoT integration</span>
+            <span class="chip">Zero-Trust / IAM</span><span class="chip">ARB</span><span class="chip">ADRs</span>
           </div>
         </div>
       </div>
@@ -455,8 +578,10 @@ footer{padding:60px 0 80px;}
           </div>
           <ul class="tl-list">
             <li>Designed internal business applications with a focus on compliance, maintainability, and business continuity.</li>
+            <li>Collaborated with cross-functional stakeholders across operations and IT to align application design with airline business requirements.</li>
             <li>Optimized front-end performance and backend APIs across .NET, SQL Server, and AngularJS.</li>
             <li>Enforced data security, access control, and audit requirements across delivered systems.</li>
+            <li>Balanced this engagement alongside the Ministry of Interior role, working across two regulated, high-stakes environments concurrently.</li>
           </ul>
           <div class="tl-stack">
             <span class="chip">.NET</span><span class="chip">SQL Server</span><span class="chip">AngularJS</span>
@@ -476,12 +601,19 @@ footer{padding:60px 0 80px;}
           </div>
           <ul class="tl-list">
             <li>Designed distributed backend systems and microservices for high-availability retail banking applications.</li>
-            <li>Architected Azure cloud deployments for compliance, security, and disaster-recovery readiness.</li>
+            <li>Assessed legacy banking workloads against the 6Rs migration framework to plan rehost, replatform, and refactor paths into Azure.</li>
+            <li>Built TCO and ROI models comparing migration options, giving leadership a cost basis alongside the technical recommendation.</li>
+            <li>Stood up governed Azure landing zones — networking, identity, and policy guardrails — as the base new banking workloads migrated into.</li>
+            <li>Architected multi-region HA/DR topology for retail banking systems, sizing failover to real recovery-time and recovery-point targets.</li>
+            <li>Applied Well-Architected Framework principles across reliability, security, cost, and operations in design reviews.</li>
             <li>Spearheaded CI/CD pipeline governance and infrastructure-as-code adoption bank-wide.</li>
+            <li>Contributed to the bank's digital transformation roadmap, aligning delivery with enterprise architecture standards.</li>
             <li>Led load and stress testing initiatives to surface and resolve system bottlenecks ahead of release.</li>
+            <li>Acted as Tech Lead on the retail internet banking platform, owning technical decisions across the delivery team.</li>
           </ul>
           <div class="tl-stack">
             <span class="chip">Azure</span><span class="chip">Microservices</span><span class="chip">IaC</span><span class="chip">Load testing</span>
+            <span class="chip">6Rs Framework</span><span class="chip">TCO/ROI</span><span class="chip">Landing Zones</span><span class="chip">Multi-Region HA/DR</span>
           </div>
         </div>
       </div>
@@ -498,7 +630,10 @@ footer{padding:60px 0 80px;}
           </div>
           <ul class="tl-list">
             <li>Delivered high-impact features across multiple concurrent projects, holding delivery timelines and quality bar.</li>
-            <li>Owned production support and resolution of critical incidents.</li>
+            <li>Partnered with cross-functional teams to design and implement new features from requirements through release.</li>
+            <li>Owned production support and resolution of critical incidents, working directly with stakeholders under time pressure.</li>
+            <li>Carried forward coding and testing discipline built in prior roles, applying it across a new client codebase.</li>
+            <li>Operated as an individual contributor across the full project lifecycle, from design through to live support.</li>
           </ul>
         </div>
       </div>
@@ -514,9 +649,15 @@ footer{padding:60px 0 80px;}
             <div class="tl-meta">Apr 2019 — Jun 2020</div>
           </div>
           <ul class="tl-list">
-            <li>Built web applications on .NET Core, ReactJS, and SQL Server.</li>
-            <li>Established coding and testing practices adopted across the team.</li>
+            <li>Built web applications on .NET Core, ReactJS, and SQL Server, covering both frontend and backend layers.</li>
+            <li>Established coding and testing practices adopted across the team, raising the baseline for code quality.</li>
+            <li>Took part in regular code reviews and team knowledge-sharing sessions to spread good practice.</li>
+            <li>Worked across the full development cycle, from feature design through implementation and testing.</li>
+            <li>Built early familiarity with React-based frontends that carried into later, larger-scale platform work.</li>
           </ul>
+          <div class="tl-stack">
+            <span class="chip">.NET Core</span><span class="chip">ReactJS</span><span class="chip">SQL Server</span>
+          </div>
         </div>
       </div>
 
@@ -531,8 +672,11 @@ footer{padding:60px 0 80px;}
             <div class="tl-meta">Apr 2016 — Apr 2019</div>
           </div>
           <ul class="tl-list">
-            <li>Designed and implemented internal business applications.</li>
-            <li>Ran ongoing system monitoring and performance tuning.</li>
+            <li>Designed and implemented internal business applications supporting day-to-day cooperative operations.</li>
+            <li>Ran ongoing system monitoring and performance tuning across deployed applications.</li>
+            <li>Provided technical support and troubleshooting for end users across the organization.</li>
+            <li>Maintained and extended applications over a three-year tenure, building deep familiarity with the organization's systems.</li>
+            <li>Handled day-to-day development independently, balancing new feature work with support of existing systems.</li>
           </ul>
         </div>
       </div>
@@ -548,7 +692,10 @@ footer{padding:60px 0 80px;}
             <div class="tl-meta">Aug 2014 — Apr 2016<br>v.1.0 — first deploy</div>
           </div>
           <ul class="tl-list">
-            <li>Assisted in development of web applications; gained foundational full-stack experience.</li>
+            <li>Assisted in the development of web applications as part of a small delivery team.</li>
+            <li>Gained foundational full-stack experience across frontend and backend development.</li>
+            <li>Took part in code reviews and team meetings, learning team-based software practices from the ground up.</li>
+            <li>Built the technical foundation that carried into more senior roles over the following decade.</li>
           </ul>
         </div>
       </div>
@@ -578,9 +725,11 @@ footer{padding:60px 0 80px;}
           Currently architecting the NFR backbone for a mission-critical digital platform supporting law
           enforcement operations. The brief: keep the system available, fast, and observable under
           conditions where downtime isn't an inconvenience — it's an operational risk. Work spans
-          microservices architecture, Kubernetes-based elasticity, secure CI/CD governance, and an
-          observability layer built for fast incident response, alongside integration of real-time IoT and
-          secure communication channels into field-facing applications.
+          microservices architecture, Kubernetes-based elasticity, secure CI/CD governance, Zero-Trust
+          identity design, and an observability layer built for fast incident response, alongside integration
+          of real-time IoT and secure communication channels into field-facing applications. Architecture
+          decisions are reviewed through ARB and documented as reference architectures and ADRs to keep
+          the platform's direction auditable over time.
         </p>
         <div class="proj-specs">
           <div><div class="spec-lbl">Role</div><div class="spec-val">Tech Lead / Architect</div></div>
@@ -591,7 +740,8 @@ footer{padding:60px 0 80px;}
         <div class="proj-stack">
           <span class="chip">Kubernetes</span><span class="chip">Microservices</span><span class="chip">Azure DevOps</span>
           <span class="chip">Dynatrace</span><span class="chip">ELK Stack</span><span class="chip">Azure Monitor</span>
-          <span class="chip">IoT integration</span><span class="chip">Secure comms</span>
+          <span class="chip">IoT integration</span><span class="chip">Secure comms</span><span class="chip">Zero-Trust / IAM</span>
+          <span class="chip">ARB</span><span class="chip">ADRs</span>
         </div>
         <div class="proj-confidential">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
@@ -623,7 +773,7 @@ footer{padding:60px 0 80px;}
           <div class="proj-status">in production</div>
         </div>
         <div class="proj-sector">Sector: Enterprise HR / internal platform</div>
-        <p class="proj-desc">Full HRIS platform automating repetitive HR processes for an organization-wide rollout. Led a 15+ person delivery team across a polyglot backend and frontend stack, including production support.</p>
+        <p class="proj-desc">Full HRIS platform automating repetitive HR processes for an organization-wide rollout. Integrated a polyglot backend (.NET, Node/Express) behind a shared frontend strategy, leading a 15+ person delivery team including production support.</p>
         <div class="proj-specs">
           <div><div class="spec-lbl">Role</div><div class="spec-val">Team lead (15+)</div></div>
           <div><div class="spec-lbl">Domain</div><div class="spec-val">Enterprise HR</div></div>
@@ -631,7 +781,7 @@ footer{padding:60px 0 80px;}
           <div><div class="spec-lbl">Data layer</div><div class="spec-val">SQL Server + CosmosDB</div></div>
         </div>
         <div class="proj-stack">
-          <span class="chip">.NET MVC</span><span class="chip">EF</span><span class="chip">ReactJS</span><span class="chip">Angular</span><span class="chip">NodeJS</span><span class="chip">ExpressJS</span><span class="chip">TypeORM</span>
+          <span class="chip">.NET MVC</span><span class="chip">EF</span><span class="chip">ReactJS</span><span class="chip">Angular</span><span class="chip">NodeJS</span><span class="chip">ExpressJS</span><span class="chip">TypeORM</span><span class="chip">Integration Architecture</span>
         </div>
       </div>
 
